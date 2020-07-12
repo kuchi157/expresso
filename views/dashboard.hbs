@@ -1,0 +1,106 @@
+<div>
+
+    {{#if check}}
+    <div class="mybackground2">
+        <div class="container">
+            <div class="mymargin-top"></div>
+
+            <h1> <span class="white-text text-darken-2 ">Welcome, {{name}}</span></h1>
+
+
+            {{#if stories}}
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each stories}}
+                    <tr>
+                        <td><a href="/stories/{{_id}}"> <span class="blue-text text-darken-2 ">{{title}}</span></a>
+                        </td>
+                        <td>{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}</td>
+                        <td><span class="dash-status">{{status}}</span></td>
+                        <td>
+                            <a href="/stories/edit/{{_id}}" class="btn btn-float">
+                                <i class="fas fa-edit"></i>
+                            </a>
+
+                            <form action="/stories/{{_id}}" method="POST" id="delete-form">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn red">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <br><br>
+            {{else}}
+            <p><span class="white-text text-darken-2 ">You have not created any Expresso. Create a one now!</span> </p>
+
+            {{/if}}
+        </div>
+    </div>
+
+
+
+
+    {{else}}
+    <div class="mybackground">
+        <div class="container">
+            <div class="mymargin-top"></div>
+
+            <h1> <span class="white-text text-darken-2 ">Welcome, {{name}}</span></h1>
+
+
+            {{#if stories}}
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each stories}}
+                    <tr>
+                        <td><a href="/stories/{{_id}}"> <span class="blue-text text-darken-2 ">{{title}}</span></a>
+                        </td>
+                        <td>{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}</td>
+                        <td><span class="dash-status">{{status}}</span></td>
+                        <td>
+                            <a href="/stories/edit/{{_id}}" class="btn btn-float">
+                                <i class="fas fa-edit"></i>
+                            </a>
+
+                            <form action="/stories/{{_id}}" method="POST" id="delete-form">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn red">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <br><br>
+            {{else}}
+            <p><span class="white-text text-darken-2 ">You have not created any Expresso. Create a one now!</span> </p>
+
+            {{/if}}
+        </div>
+    </div>
+
+    {{/if}}
+
+</div>
